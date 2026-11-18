@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Image Slider</title>
+
+<style>
+body{
+    font-family: Arial;
+    text-align:center;
+}
+
+.slider img{
+    width:500px;
+    height:300px;
+    display:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<h2>Image Slider</h2>
+
+<div class="slider">
+<img src="shefali.jpeg">
+<img src="profile.jpg">
+<img src="shefali.jpg">
+</div>
+
+<br>
+<style>
+.slider img{
+    width:500px;
+    height:300px;
+    display:none;
+}
+
+.slider img:first-child{
+    display:block;
+}
+</style>
+
+
+
+
+<br>
+
+<button onclick="prev()">Previous</button>
+<button onclick="next()">Next</button>
+
+
+
+
+
+
+
+<script>
+
+let index = 0;
+let slides = document.querySelectorAll(".slider img");
+
+slides[index].style.display="block";
+
+function showSlide(){
+    for(let i=0;i<slides.length;i++){
+        slides[i].style.display="none";
+    }
+    slides[index].style.display="block";
+}
+
+function next(){
+    index++;
+    if(index >= slides.length){
+        index = 0;
+    }
+    showSlide();
+}
+
+function prev(){
+    index--;
+    if(index < 0){
+        index = slides.length-1;
+    }
+    showSlide();
+}
+
+</script>
+
+</body>
+</html>
